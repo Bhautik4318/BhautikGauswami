@@ -1,0 +1,38 @@
+# Django REST Framework Backend Requirements
+# Core Django packages
+Django==4.2.7
+djangorestframework==3.14.0
+django-cors-headers==4.3.1
+
+# Database
+psycopg2-binary==2.9.9  # PostgreSQL adapter
+django-environ==0.11.2  # Environment variables
+dj-database-url==2.1.0  # Database URL parsing
+
+# Media & File Handling
+Pillow==10.1.0  # Image processing
+django-storages==1.14.2  # File storage backends
+
+# Admin Enhancement
+django-admin-interface==0.21.0  # Beautiful admin interface
+django-colorfield==0.8.0  # Color picker for admin
+django-summernote==0.8.20.0  # Rich text editor
+
+# API Documentation
+drf-spectacular==0.26.5  # OpenAPI 3 schema generation
+
+# Email & Communication
+django-ses==3.4.1  # Amazon SES email backend
+
+# Development & Testing
+django-debug-toolbar==4.2.0
+factory-boy==3.3.0
+pytest-django==4.6.0
+
+# Production
+gunicorn==21.2.0
+whitenoise==6.6.0  # Static files serving
+
+# Utilities
+python-decouple==3.8  # Configuration management
+django-filter==23.3  # API filtering
