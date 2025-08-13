@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚀 Neural Pulse Portfolio - Bhautik Gauswami
 
 A modern, animated portfolio website showcasing expertise in AI, data science, and full-stack development. Built with React 19, TypeScript, and featuring stunning animations powered by Framer Motion.
