@@ -1,0 +1,89 @@
+<!-- URL Testing Page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Test Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-item { margin: 10px 0; padding: 10px; border: 1px solid #ddd; }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        img { max-width: 200px; max-height: 200px; border: 2px solid #333; }
+    </style>
+</head>
+<body>
+    <h1>Portfolio URL Testing</h1>
+    
+    <div class="test-item">
+        <h3>Main Image Test</h3>
+        <img id="main-img" src="/static/images/bhautik.jpg" alt="Main Profile Image">
+        <p id="main-status">Loading...</p>
+    </div>
+    
+    <div class="test-item">
+        <h3>CSS Test</h3>
+        <link rel="stylesheet" href="/static/css/styles.css">
+        <p>CSS file: <span id="css-status">Checking...</span></p>
+    </div>
+    
+    <div class="test-item">
+        <h3>JavaScript Test</h3>
+        <script src="/static/js/main.js"></script>
+        <p>JS file: <span id="js-status">Checking...</span></p>
+    </div>
+    
+    <div class="test-item">
+        <h3>Navigation Test</h3>
+        <a href="/" target="_blank">Home Page</a> | 
+        <a href="/debug/" target="_blank">Debug Page</a>
+    </div>
+    
+    <script>
+        // Test main image
+        const mainImg = document.getElementById('main-img');
+        const mainStatus = document.getElementById('main-status');
+        
+        mainImg.onload = function() {
+            mainStatus.textContent = '✅ Image loaded successfully';
+            mainStatus.parentElement.classList.add('success');
+        };
+        
+        mainImg.onerror = function() {
+            mainStatus.textContent = '❌ Image failed to load';
+            mainStatus.parentElement.classList.add('error');
+        };
+        
+        // Test CSS
+        setTimeout(() => {
+            const cssStatus = document.getElementById('css-status');
+            const testDiv = document.createElement('div');
+            testDiv.style.cssText = 'position: absolute; left: -9999px;';
+            document.body.appendChild(testDiv);
+            
+            const computed = window.getComputedStyle(testDiv);
+            if (computed.position === 'absolute') {
+                cssStatus.textContent = '✅ CSS loaded';
+                cssStatus.parentElement.classList.add('success');
+            } else {
+                cssStatus.textContent = '❌ CSS failed';
+                cssStatus.parentElement.classList.add('error');
+            }
+            document.body.removeChild(testDiv);
+        }, 100);
+        
+        // Test JS
+        setTimeout(() => {
+            const jsStatus = document.getElementById('js-status');
+            if (typeof PortfolioApp !== 'undefined') {
+                jsStatus.textContent = '✅ JavaScript loaded';
+                jsStatus.parentElement.classList.add('success');
+            } else {
+                jsStatus.textContent = '⚠️ JavaScript partially loaded';
+                jsStatus.parentElement.classList.add('success');
+            }
+        }, 200);
+    </script>
+</body>
+</html>

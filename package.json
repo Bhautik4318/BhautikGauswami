@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "description": "Bhautik Gauswami Portfolio Website",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/main.js",
+    "netlify-build": "npm run build"
+  },
+  "keywords": ["portfolio", "django", "typescript", "web-development"],
+  "author": "Bhautik Gauswami",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "dependencies": {
+    "particles.js": "^2.0.0"
+  }
+}

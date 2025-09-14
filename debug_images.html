@@ -1,0 +1,57 @@
+<!-- Simple HTML test for image debugging -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Debug Test</title>
+    <style>
+        .test-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+        .test-box {
+            border: 2px solid #333;
+            padding: 10px;
+            width: 200px;
+        }
+        .test-box img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Loading Debug Test</h1>
+    <div class="test-container">
+        <div class="test-box">
+            <h3>SVG Test</h3>
+            <img src="/static/images/test_profile.svg" alt="SVG Test">
+        </div>
+        <div class="test-box">
+            <h3>JPEG Test</h3>
+            <img src="/static/images/bhautik.jpg" alt="JPEG Test">
+        </div>
+        <div class="test-box">
+            <h3>WhatsApp Image</h3>
+            <img src="/static/images/WhatsApp Image 2025-08-28 at 14.47.10_0655748f.jpg" alt="WhatsApp Test">
+        </div>
+    </div>
+    
+    <script>
+        document.querySelectorAll('img').forEach((img, index) => {
+            img.onload = function() {
+                console.log(`✅ Image ${index + 1} loaded:`, this.src);
+                this.style.border = '3px solid green';
+            };
+            img.onerror = function() {
+                console.log(`❌ Image ${index + 1} failed:`, this.src);
+                this.style.border = '3px solid red';
+                this.alt = 'FAILED TO LOAD';
+            };
+        });
+    </script>
+</body>
+</html>

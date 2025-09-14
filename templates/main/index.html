@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bhautik Gauswami - AI/ML Engineer & Data Scientist Portfolio">
+    <meta name="keywords" content="AI, ML, Data Science, Python, Django, React, Portfolio">
+    <meta name="author" content="Bhautik Gauswami">
+    <title>Bhautik Gauswami - AI/ML Engineer & Data Scientist</title>
+    
+    <!-- Load static files -->
+    {% load static %}
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    
+    <!-- Preload fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home" class="logo-link">BG</a>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experience" class="nav-link">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#certificates" class="nav-link">Certificates</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="theme-toggle">
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Global Particles Background -->
+    <div id="particles-js" class="particles-global"></div>
+
+    <!-- Home Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    Hello, I'm <span class="highlight">Bhautik Gauswami</span>
+                </h1>
+                <h2 class="hero-subtitle">AI/ML Engineer & Data Scientist</h2>
+                <p class="hero-description">
+                    Passionate about building intelligent solutions that make a real-world impact through AI, Machine Learning, and Data Analytics.
+                </p>
+                <div class="hero-buttons">
+                    <a href="/media/resume.pdf" class="btn btn-primary" download="Bhautikgiri_Gauswami_Resume.pdf">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description">
+                        Innovative Information Technology student with expertise in ML, AI, and Data Analytics. 
+                        Skilled in building AI-powered automation solutions and full-stack applications. 
+                        Strong foundation in Python, scikit-learn, Django, React, and Generative AI. 
+                        Passionate about delivering intelligent, explainable, and real-world solutions.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <div class="profile-container">
+                        <div class="profile-image">
+                            <!-- Your professional photo -->
+                            <img id="profile-img" src="{% static 'images/bhautik.jpg' %}" alt="Bhautik Gauswami - AI/ML Engineer">
+                            <div class="profile-fallback" style="display: none;">
+                                <div style="
+                                    width: 100%; 
+                                    height: 100%; 
+                                    border-radius: 50%; 
+                                    background: linear-gradient(135deg, #010101 0%, #050505 100%);
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    color: white;
+                                    font-size: 3rem;
+                                    font-weight: bold;
+                                    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+                                ">BG</div>
+                            </div>
+                        </div>
+                        <div class="profile-border"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Technologies</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="skill-title">Programming</h3>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>C</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="skill-title">ML & Data Science</h3>
+                    <ul class="skill-list">
+                        <li>Scikit-learn</li>
+                        <li>Pandas</li>
+                        <li>NumPy</li>
+                        <li>Matplotlib</li>
+                        <li>Seaborn</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="skill-title">AI & GenAI</h3>
+                    <ul class="skill-list">
+                        <li>ChatGPT</li>
+                        <li>GitHub Copilot</li>
+                        <li>Gemini</li>
+                        <li>DeepSeek</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="skill-title">Web Development</h3>
+                    <ul class="skill-list">
+                        <li>Django</li>
+                        <li>React</li>
+                        <li>HTML/CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="skill-title">Visualization</h3>
+                    <ul class="skill-list">
+                        <li>Matplotlib</li>
+                        <li>Seaborn</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="skill-title">Tools</h3>
+                    <ul class="skill-list">
+                        <li>GitHub</li>
+                        <li>VS Code</li>
+                        <li>Jupyter</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experience</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">May 2025 – June 2025</div>
+                        <h3 class="timeline-title">AI/ML Engineer Intern</h3>
+                        <h4 class="timeline-company">Elite Technocrats</h4>
+                        <ul class="timeline-description">
+                            <li>Developed CodeDocGen project using Django + React for automated documentation generation</li>
+                            <li>Implemented ML/DL algorithms for code analysis and intelligent documentation structuring</li>
+                            <li>Added syntax highlighting, multi-file support, and authentication</li>
+                            <li>Successfully delivered production-ready AI-powered documentation tool</li>
+                        </ul>
+                        <a href="https://github.com/Bhautikgauswami33/code-docgen" class="project-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Projects</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Dream11 Team Predictor</h3>
+                        <div class="project-links">
+                            <a href="https://github.com/jenish2917/dream11-team-predictor" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-description">
+                        <p>ML-powered cricket fantasy team recommendation system using Random Forest and Logistic Regression algorithms.</p>
+                        <ul class="project-features">
+                            <li>Scraped ESPNcricinfo for real-time cricket statistics</li>
+                            <li>CLI-based system with tournament/venue customization</li>
+                            <li>Advanced ML models for player performance prediction</li>
+                            <li>Data-driven team selection optimization</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Web Scraping</span>
+                        <span class="tech-tag">Random Forest</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">CodeDocGen</h3>
+                        <div class="project-links">
+                            <a href="https://github.com/Bhautikgauswami33/code-docgen" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-description">
+                        <p>Automated documentation generator using Django + React with AI-powered code analysis.</p>
+                        <ul class="project-features">
+                            <li>Intelligent code analysis and formatting using ML models</li>
+                            <li>Authentication system with user management</li>
+                            <li>File upload functionality with multi-format support</li>
+                            <li>Customizable documentation templates</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">ML/DL</span>
+                        <span class="tech-tag">Authentication</span>
+                        <span class="tech-tag">Full-Stack</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Certificates</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="certificates-grid">
+                <div class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Tata GenAI Powered Data Analytics</h3>
+                        <p class="certificate-issuer">Forage</p>
+                        <p class="certificate-type">Job Simulation</p>
+                        <p class="certificate-date">January 2025</p>
+                    </div>
+                </div>
+                
+                <div class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">C Programming Language</h3>
+                        <p class="certificate-issuer">Red & White Institute</p>
+                        <p class="certificate-type">Programming Certification</p>
+                        <p class="certificate-date">2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Let's discuss how we can work together</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <a href="mailto:bhautikgosai4318@gmail.com">bhautikgosai4318@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <a href="tel:+918141415113">+91 8141415113</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>GitHub</h4>
+                            <a href="https://github.com/Bhautikgauswami33" target="_blank" rel="noopener noreferrer">Bhautikgauswami33</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>LinkedIn</h4>
+                            <a href="https://www.linkedin.com/in/bhautik-gauswami-921b54320/" target="_blank" rel="noopener noreferrer">Bhautik Gauswami</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                    <div id="form-message" class="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Bhautik Gauswami. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="https://github.com/Bhautikgauswami33" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/bhautik-gauswami-921b54320/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:bhautikgosai4318@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script>
+        // Professional image loading with fallback
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileImg = document.getElementById('profile-img');
+            const fallbackDiv = document.querySelector('.profile-fallback');
+            
+            if (profileImg && fallbackDiv) {
+                // Initially hide fallback
+                fallbackDiv.style.display = 'none';
+                
+                profileImg.onload = function() {
+                    console.log('✅ Profile image loaded successfully');
+                    fallbackDiv.style.display = 'none';
+                    profileImg.style.display = 'block';
+                };
+                
+                profileImg.onerror = function() {
+                    console.log('❌ Profile image failed to load, showing elegant fallback');
+                    console.log('Image URL:', this.src);
+                    profileImg.style.display = 'none';
+                    fallbackDiv.style.display = 'block';
+                };
+                
+                // Check if image is already loaded (cached)
+                if (profileImg.complete) {
+                    if (profileImg.naturalWidth > 0) {
+                        console.log('✅ Image loaded from cache');
+                        fallbackDiv.style.display = 'none';
+                    } else {
+                        console.log('❌ Image failed from cache, showing fallback');
+                        profileImg.style.display = 'none';
+                        fallbackDiv.style.display = 'block';
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

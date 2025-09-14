@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Test</title>
+</head>
+<body>
+    <h1>Image Loading Test</h1>
+    
+    <!-- Direct image test -->
+    <div style="border: 2px solid red; padding: 10px; margin: 10px;">
+        <h3>Direct Static URL Test:</h3>
+        <img src="/static/images/bhautik.jpg" alt="Test 1" style="width: 200px; height: 200px; border: 2px solid blue;">
+    </div>
+    
+    <!-- WhatsApp image test -->
+    <div style="border: 2px solid green; padding: 10px; margin: 10px;">
+        <h3>WhatsApp Image Test:</h3>
+        <img src="/static/images/WhatsApp Image 2025-08-28 at 14.47.10_0655748f.jpg" alt="Test 2" style="width: 200px; height: 200px; border: 2px solid blue;">
+    </div>
+    
+    <!-- SVG fallback test -->
+    <div style="border: 2px solid orange; padding: 10px; margin: 10px;">
+        <h3>SVG Fallback Test:</h3>
+        <img src="/static/images/profile_fallback.svg" alt="Test 3" style="width: 200px; height: 200px; border: 2px solid blue;">
+    </div>
+    
+    <script>
+        document.querySelectorAll('img').forEach((img, index) => {
+            img.onload = function() {
+                console.log(`Image ${index + 1} loaded successfully:`, this.src);
+            };
+            img.onerror = function() {
+                console.log(`Image ${index + 1} failed to load:`, this.src);
+            };
+        });
+    </script>
+</body>
+</html>
