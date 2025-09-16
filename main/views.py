@@ -11,13 +11,13 @@ def home(request):
 
 def debug_images(request):
     """Debug page for testing image loading"""
-    with open('debug_images.html', 'r') as f:
+    with open('debug_images.html', 'r', encoding='utf-8') as f:
         content = f.read()
     return HttpResponse(content)
 
 def url_test(request):
     """URL testing page"""
-    with open('url_test.html', 'r') as f:
+    with open('url_test.html', 'r', encoding='utf-8') as f:
         content = f.read()
     return HttpResponse(content)
 
