@@ -13,6 +13,7 @@
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/premium-toggles.css' %}">
     
     <!-- Preload fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,6 +22,9 @@
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Particles.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -57,9 +61,13 @@
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
-            <div class="theme-toggle">
-                <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
-                    <i class="fas fa-sun"></i>
+            <div class="toggle-option-1">
+                <button id="theme-toggle" class="toggle-1" 
+                        role="switch" 
+                        aria-checked="false" 
+                        aria-label="Toggle between dark and light theme"
+                        tabindex="0">
+                    <span class="toggle-sr-only">Toggle theme</span>
                 </button>
             </div>
         </div>
@@ -73,13 +81,13 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1 class="hero-title">
-                    Hello, I'm <span class="highlight">Bhautik Gauswami</span>
+                    Hello, I'm <span class="highlight animate-glow">Bhautik Gauswami</span>
                 </h1>
-                <h2 class="hero-subtitle">AI/ML Engineer & Data Scientist</h2>
-                <p class="hero-description">
+                <h2 class="hero-subtitle animate-fade-in">AI/ML Engineer & Data Scientist</h2>
+                <p class="hero-description animate-slide-up">
                     Passionate about building intelligent solutions that make a real-world impact through AI, Machine Learning, and Data Analytics.
                 </p>
-                <div class="hero-buttons">
+                <div class="hero-buttons animate-bounce-in">
                     <a href="/media/resume.pdf" class="btn btn-primary" download="Bhautikgiri_Gauswami_Resume.pdf">
                         <i class="fas fa-download"></i> Download Resume
                     </a>
@@ -106,30 +114,6 @@
                         Strong foundation in Python, scikit-learn, Django, React, and Generative AI. 
                         Passionate about delivering intelligent, explainable, and real-world solutions.
                     </p>
-                </div>
-                <div class="about-image">
-                    <div class="profile-container">
-                        <div class="profile-image">
-                            <!-- Your professional photo -->
-                            <img id="profile-img" src="{% static 'images/bhautik.jpg' %}" alt="Bhautik Gauswami - AI/ML Engineer">
-                            <div class="profile-fallback" style="display: none;">
-                                <div style="
-                                    width: 100%; 
-                                    height: 100%; 
-                                    border-radius: 50%; 
-                                    background: linear-gradient(135deg, #010101 0%, #050505 100%);
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    color: white;
-                                    font-size: 3rem;
-                                    font-weight: bold;
-                                    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-                                ">BG</div>
-                            </div>
-                        </div>
-                        <div class="profile-border"></div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -445,42 +429,166 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="{% static 'js/main.js' %}"></script>
     <script>
-        // Professional image loading with fallback
-        document.addEventListener('DOMContentLoaded', function() {
-            const profileImg = document.getElementById('profile-img');
-            const fallbackDiv = document.querySelector('.profile-fallback');
+        // Particles configuration
+        function getParticlesConfig(theme) {
+            const particleColor = theme === 'dark' ? '#ffffff' : '#000000';
             
-            if (profileImg && fallbackDiv) {
-                // Initially hide fallback
-                fallbackDiv.style.display = 'none';
-                
-                profileImg.onload = function() {
-                    console.log('✅ Profile image loaded successfully');
-                    fallbackDiv.style.display = 'none';
-                    profileImg.style.display = 'block';
-                };
-                
-                profileImg.onerror = function() {
-                    console.log('❌ Profile image failed to load, showing elegant fallback');
-                    console.log('Image URL:', this.src);
-                    profileImg.style.display = 'none';
-                    fallbackDiv.style.display = 'block';
-                };
-                
-                // Check if image is already loaded (cached)
-                if (profileImg.complete) {
-                    if (profileImg.naturalWidth > 0) {
-                        console.log('✅ Image loaded from cache');
-                        fallbackDiv.style.display = 'none';
-                    } else {
-                        console.log('❌ Image failed from cache, showing fallback');
-                        profileImg.style.display = 'none';
-                        fallbackDiv.style.display = 'block';
+            return {
+                particles: {
+                    number: {
+                        value: 150,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: particleColor
+                    },
+                    shape: {
+                        type: 'circle',
+                        stroke: {
+                            width: 0,
+                            color: particleColor
+                        }
+                    },
+                    opacity: {
+                        value: 0.6,
+                        random: true,
+                        anim: {
+                            enable: true,
+                            speed: 1.5,
+                            opacity_min: 0.2,
+                            sync: false
+                        }
+                    },
+                    size: {
+                        value: 4,
+                        random: true,
+                        anim: {
+                            enable: true,
+                            speed: 2,
+                            size_min: 1,
+                            sync: false
+                        }
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: particleColor,
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 3,
+                        direction: 'none',
+                        random: false,
+                        straight: false,
+                        out_mode: 'out',
+                        attract: {
+                            enable: false,
+                            rotateX: 600,
+                            rotateY: 1200
+                        }
                     }
-                }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: 'repulse'
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: 'push'
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 400,
+                            line_linked: {
+                                opacity: 1
+                            }
+                        },
+                        bubble: {
+                            distance: 400,
+                            size: 40,
+                            duration: 2,
+                            opacity: 8,
+                            speed: 3
+                        },
+                        repulse: {
+                            distance: 200
+                        },
+                        push: {
+                            particles_nb: 4
+                        },
+                        remove: {
+                            particles_nb: 2
+                        }
+                    }
+                },
+                retina_detect: true
+            };
+        }
+
+        // Initialize particles when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🎉 Portfolio loaded successfully');
+            
+            // Initialize particles
+            if (typeof particlesJS !== 'undefined') {
+                const config = getParticlesConfig('dark'); // Start with dark theme
+                particlesJS('particles-js', config);
+                console.log('✨ Particles initialized');
+            } else {
+                console.error('❌ Particles.js library not loaded');
             }
+
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            
+            // Check for saved theme preference or default to 'dark'
+            const currentTheme = localStorage.getItem('theme') || 'dark';
+            body.setAttribute('data-theme', currentTheme);
+            
+            // Update toggle button state
+            if (currentTheme === 'light') {
+                themeToggle.setAttribute('aria-checked', 'true');
+                themeToggle.classList.add('active');
+            }
+
+            // Theme toggle event listener
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = body.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                // Update theme
+                body.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                // Update toggle state
+                themeToggle.setAttribute('aria-checked', newTheme === 'light');
+                if (newTheme === 'light') {
+                    themeToggle.classList.add('active');
+                } else {
+                    themeToggle.classList.remove('active');
+                }
+                
+                // Update particles with new theme
+                if (typeof particlesJS !== 'undefined') {
+                    const config = getParticlesConfig(newTheme);
+                    particlesJS('particles-js', config);
+                    console.log(`🎨 Theme switched to ${newTheme}`);
+                }
+            });
+
+            console.log('🎛️ Theme toggle initialized');
         });
     </script>
 </body>

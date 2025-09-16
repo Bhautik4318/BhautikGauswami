@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Toggle Button Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --nav-text: #ffffff;
+            --nav-bg: #000000;
+            --accent-color: #ffffff;
+        }
+
+        [data-theme="light"] {
+            --nav-text: #000000;
+            --nav-bg: #ffffff;
+        }
+
+        body {
+            background: var(--nav-bg);
+            color: var(--nav-text);
+            font-family: 'Inter', sans-serif;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+
+        .toggle-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .toggle-demo {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--nav-text);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-demo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+        }
+
+        .toggle-demo h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .toggle-demo p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .toggle-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .select-btn {
+            background: var(--nav-text);
+            color: var(--nav-bg);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .select-btn:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        .instructions {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid var(--nav-text);
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--nav-text);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            text-align: left;
+            overflow-x: auto;
+        }
+    </style>
+    <link rel="stylesheet" href="/static/css/premium-toggles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Premium Toggle Button Collection</h1>
+        
+        <div class="toggle-showcase">
+            <!-- Option 1 -->
+            <div class="toggle-demo">
+                <h3>Option 1: Sleek Slide Toggle</h3>
+                <p>Classic horizontal slider with smooth animation. Most popular choice.</p>
+                <div class="toggle-container">
+                    <div class="toggle-option-1">
+                        <button class="toggle-1" onclick="toggleTheme()">
+                            <span class="toggle-sr-only">Toggle theme</span>
+                        </button>
+                    </div>
+                </div>
+                <button class="select-btn" onclick="selectToggle(1)">Select This Style</button>
+            </div>
+
+            <!-- Option 2 -->
+            <div class="toggle-demo">
+                <h3>Option 2: Morphing Icon Toggle</h3>
+                <p>Fun emoji-based toggle with morphing animation. Interactive and playful.</p>
+                <div class="toggle-container">
+                    <div class="toggle-option-2">
+                        <button class="toggle-2" onclick="toggleTheme()">
+                            <div class="toggle-morph-icon"></div>
+                            <span class="toggle-sr-only">Toggle theme</span>
+                        </button>
+                    </div>
+                </div>
+                <button class="select-btn" onclick="selectToggle(2)">Select This Style</button>
+            </div>
+
+            <!-- Option 3 -->
+            <div class="toggle-demo">
+                <h3>Option 3: Flip Card Toggle</h3>
+                <p>3D flip animation with SVG icons. Modern and sophisticated.</p>
+                <div class="toggle-container">
+                    <div class="toggle-option-3">
+                        <button class="toggle-3" onclick="toggleTheme()">
+                            <div class="toggle-face toggle-face-front">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="5"/>
+                                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                                </svg>
+                            </div>
+                            <div class="toggle-face toggle-face-back">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                                </svg>
+                            </div>
+                            <span class="toggle-sr-only">Toggle theme</span>
+                        </button>
+                    </div>
+                </div>
+                <button class="select-btn" onclick="selectToggle(3)">Select This Style</button>
+            </div>
+
+            <!-- Option 4 -->
+            <div class="toggle-demo">
+                <h3>Option 4: Liquid Toggle</h3>
+                <p>Premium liquid motion with enhanced shadow effects. Smooth and luxurious.</p>
+                <div class="toggle-container">
+                    <div class="toggle-option-4">
+                        <button class="toggle-4" onclick="toggleTheme()">
+                            <span class="toggle-sr-only">Toggle theme</span>
+                        </button>
+                    </div>
+                </div>
+                <button class="select-btn" onclick="selectToggle(4)">Select This Style</button>
+            </div>
+
+            <!-- Option 5 -->
+            <div class="toggle-demo">
+                <h3>Option 5: Minimalist Square</h3>
+                <p>Clean geometric design with morphing animation. Ultra-modern and minimal.</p>
+                <div class="toggle-container">
+                    <div class="toggle-option-5">
+                        <button class="toggle-5" onclick="toggleTheme()">
+                            <div class="toggle-5-inner"></div>
+                            <span class="toggle-sr-only">Toggle theme</span>
+                        </button>
+                    </div>
+                </div>
+                <button class="select-btn" onclick="selectToggle(5)">Select This Style</button>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h2>🚀 How to Apply Your Choice</h2>
+            <p>Currently using: <strong>Option 1 (Sleek Slide Toggle)</strong></p>
+            <p>To change to a different style, copy the HTML code below and replace the current toggle in your template:</p>
+            
+            <div class="code-block" id="selected-code">
+                <!-- Option 1 code will be shown here -->
+                &lt;div class="toggle-option-1"&gt;<br>
+                &nbsp;&nbsp;&lt;button id="theme-toggle" class="toggle-1"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="toggle-sr-only"&gt;Toggle theme&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;/button&gt;<br>
+                &lt;/div&gt;
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+        }
+
+        function selectToggle(option) {
+            const codes = {
+                1: `&lt;div class="toggle-option-1"&gt;<br>&nbsp;&nbsp;&lt;button id="theme-toggle" class="toggle-1"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="toggle-sr-only"&gt;Toggle theme&lt;/span&gt;<br>&nbsp;&nbsp;&lt;/button&gt;<br>&lt;/div&gt;`,
+                2: `&lt;div class="toggle-option-2"&gt;<br>&nbsp;&nbsp;&lt;button id="theme-toggle" class="toggle-2"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="toggle-morph-icon"&gt;&lt;/div&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="toggle-sr-only"&gt;Toggle theme&lt;/span&gt;<br>&nbsp;&nbsp;&lt;/button&gt;<br>&lt;/div&gt;`,
+                3: `&lt;div class="toggle-option-3"&gt;<br>&nbsp;&nbsp;&lt;button id="theme-toggle" class="toggle-3"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="toggle-face toggle-face-front"&gt;[SVG]&lt;/div&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="toggle-face toggle-face-back"&gt;[SVG]&lt;/div&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="toggle-sr-only"&gt;Toggle theme&lt;/span&gt;<br>&nbsp;&nbsp;&lt;/button&gt;<br>&lt;/div&gt;`,
+                4: `&lt;div class="toggle-option-4"&gt;<br>&nbsp;&nbsp;&lt;button id="theme-toggle" class="toggle-4"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="toggle-sr-only"&gt;Toggle theme&lt;/span&gt;<br>&nbsp;&nbsp;&lt;/button&gt;<br>&lt;/div&gt;`,
+                5: `&lt;div class="toggle-option-5"&gt;<br>&nbsp;&nbsp;&lt;button id="theme-toggle" class="toggle-5"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="toggle-5-inner"&gt;&lt;/div&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="toggle-sr-only"&gt;Toggle theme&lt;/span&gt;<br>&nbsp;&nbsp;&lt;/button&gt;<br>&lt;/div&gt;`
+            };
+            
+            document.getElementById('selected-code').innerHTML = codes[option];
+            alert(`Selected Option ${option}! Copy the code shown below to apply this style.`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+/* TumbleButton Theme Toggle - ROST-like Vertical Design */
+/* Black & White only, accessible, keyboard-friendly */
+
+.tumble-theme-toggle {
+    position: relative;
+    margin-left: 1rem;
+}
+
+.tumble-button {
+    width: 44px;
+    height: 88px;
+    background: transparent;
+    border: 2px solid var(--nav-text);
+    border-radius: 22px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    outline: none;
+}
+
+.tumble-button:hover {
+    border-color: var(--nav-text);
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+.tumble-button:focus-visible {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.tumble-button:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+}
+
+/* Tumble Ball */
+.tumble-ball {
+    width: 32px;
+    height: 32px;
+    background: var(--nav-text);
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Icon container inside the ball */
+.tumble-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--nav-bg);
+    transition: all 0.4s ease;
+}
+
+/* Theme Icons */
+.tumble-sun-icon,
+.tumble-moon-icon {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s ease;
+}
+
+/* Default state - Dark theme (show sun, ball at top) */
+.tumble-sun-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+.tumble-moon-icon {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.5);
+}
+
+/* Light theme state (show moon, ball at bottom) */
+[data-theme="light"] .tumble-ball {
+    top: 48px; /* Move to bottom */
+    background: var(--nav-text);
+}
+
+[data-theme="light"] .tumble-sun-icon {
+    opacity: 0;
+    transform: rotate(180deg) scale(0.5);
+}
+
+[data-theme="light"] .tumble-moon-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+/* Track indicators */
+.tumble-track {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2px;
+    height: 40px;
+    background: var(--nav-text);
+    opacity: 0.3;
+    border-radius: 1px;
+    z-index: 1;
+}
+
+/* Hover effect on track */
+.tumble-button:hover .tumble-track {
+    opacity: 0.5;
+}
+
+/* Accessibility - Screen reader text */
+.tumble-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .tumble-button {
+        width: 40px;
+        height: 80px;
+        border-radius: 20px;
+    }
+    
+    .tumble-ball {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .tumble-icon {
+        width: 14px;
+        height: 14px;
+    }
+    
+    [data-theme="light"] .tumble-ball {
+        top: 44px;
+    }
+}

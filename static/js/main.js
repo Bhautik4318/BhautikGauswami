@@ -1,6 +1,6 @@
-"use strict";
 // TypeScript Main Application File
 // Handles particles animation, smooth scrolling, contact form, and UI interactions
+import { getParticlesConfig } from './lib/particlesConfig.js';
 class PortfolioApp {
     constructor() {
         this.currentTheme = 'dark';
@@ -33,10 +33,17 @@ class PortfolioApp {
                 this.toggleMobileMenu();
             });
         }
-        // Theme toggle
+        // Theme toggle with keyboard support
         if (this.themeToggle) {
             this.themeToggle.addEventListener('click', () => {
                 this.toggleTheme();
+            });
+            // Keyboard support for accessibility
+            this.themeToggle.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.toggleTheme();
+                }
             });
         }
         // Navigation links smooth scroll
@@ -91,28 +98,22 @@ class PortfolioApp {
     toggleTheme() {
         this.currentTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', this.currentTheme);
-        // Update theme button icon
+        // Update TumbleButton aria-checked state
         if (this.themeToggle) {
-            const icon = this.themeToggle.querySelector('i');
-            if (icon) {
-                icon.className = this.currentTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-            }
+            this.themeToggle.setAttribute('aria-checked', this.currentTheme === 'light' ? 'true' : 'false');
         }
         // Save theme preference
         localStorage.setItem('theme', this.currentTheme);
-        // Reinitialize particles with new theme
+        // Reinitialize particles with new theme using optimized config
         this.initializeParticles();
     }
     loadTheme() {
         const savedTheme = localStorage.getItem('theme') || 'dark';
         this.currentTheme = savedTheme;
         document.documentElement.setAttribute('data-theme', this.currentTheme);
-        // Update theme button icon
+        // Update TumbleButton aria-checked state
         if (this.themeToggle) {
-            const icon = this.themeToggle.querySelector('i');
-            if (icon) {
-                icon.className = this.currentTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-            }
+            this.themeToggle.setAttribute('aria-checked', this.currentTheme === 'light' ? 'true' : 'false');
         }
     }
     setupSmoothScrolling() {
@@ -238,92 +239,10 @@ class PortfolioApp {
             particlesContainer.style.height = documentHeight + 'px';
             particlesContainer.parentElement.style.height = documentHeight + 'px';
         }
-        // Get current theme colors
-        const isDark = this.currentTheme === 'dark';
-        const particleColor = isDark ? '#ffffff' : '#000000';
-        // Initialize particles.js with enhanced configuration for better visibility
+        // Use optimized particles configuration
         if (typeof particlesJS !== 'undefined') {
-            particlesJS('particles-js', {
-                particles: {
-                    number: {
-                        value: 150, // Reduced from 200 to 150
-                        density: {
-                            enable: true,
-                            value_area: 800 // Reduced area for more density
-                        }
-                    },
-                    color: {
-                        value: particleColor
-                    },
-                    shape: {
-                        type: 'circle',
-                        stroke: {
-                            width: 0,
-                            color: particleColor
-                        }
-                    },
-                    opacity: {
-                        value: 0.6, // Increased from 0.3 to 0.6 for better visibility
-                        random: true,
-                        anim: {
-                            enable: true,
-                            speed: 1.5, // Slightly faster animation
-                            opacity_min: 0.2, // Increased minimum opacity
-                            sync: false
-                        }
-                    },
-                    size: {
-                        value: 3, // Increased from 2 to 3
-                        random: true,
-                        anim: {
-                            enable: true,
-                            speed: 2,
-                            size_min: 0.5, // Increased minimum size
-                            sync: false
-                        }
-                    },
-                    line_linked: {
-                        enable: true,
-                        distance: 150, // Increased connection distance
-                        color: particleColor,
-                        opacity: 0.4, // Increased line opacity for better visibility
-                        width: 1.5 // Increased line width
-                    },
-                    move: {
-                        enable: true,
-                        speed: 5, // Optimal speed for smooth visible movement
-                        direction: 'none',
-                        random: true,
-                        straight: false,
-                        out_mode: 'bounce', // Particles bounce off edges
-                        bounce: true,
-                        attract: {
-                            enable: false,
-                            rotateX: 600,
-                            rotateY: 1200
-                        }
-                    }
-                },
-                interactivity: {
-                    detect_on: 'canvas',
-                    events: {
-                        onhover: {
-                            enable: false // Disabled hover interactions
-                        },
-                        onclick: {
-                            enable: true, // Enable click interactions
-                            mode: 'push' // Add particles on click
-                        },
-                        resize: true
-                    },
-                    modes: {
-                        push: {
-                            particles_nb: 8 // Increased from 4 to 8 particles on click
-                        }
-                    }
-                },
-                retina_detect: true
-            });
+            const config = getParticlesConfig(this.currentTheme);
+            particlesJS('particles-js', config);
         }
     }
     setupScrollAnimations() {

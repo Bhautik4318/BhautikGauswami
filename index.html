@@ -18,8 +18,14 @@
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Particles.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
+    <!-- Global Particles Background -->
+    <div id="particles-js" class="particles-global"></div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
@@ -64,18 +70,24 @@
     <div id="particles-js"></div>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero-section">
         <div class="hero-content">
-            <h1 class="hero-title">
-                Hi, I'm <span class="highlight">Bhautik Gauswami</span>
-            </h1>
-            <p class="hero-subtitle">AI/ML Engineer & Data Scientist</p>
-            <p class="hero-description">
-                Crafting intelligent solutions with cutting-edge AI and machine learning technologies
-            </p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                <a href="#projects" class="btn btn-secondary">View My Work</a>
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    Hello, I'm <span class="highlight animate-glow">Bhautik Gauswami</span>
+                </h1>
+                <h2 class="hero-subtitle animate-fade-in">AI/ML Engineer & Data Scientist</h2>
+                <p class="hero-description animate-slide-up">
+                    Passionate about building intelligent solutions that make a real-world impact through AI, Machine Learning, and Data Analytics.
+                </p>
+                <div class="hero-buttons animate-bounce-in">
+                    <a href="media/resume.pdf" class="btn btn-primary" download="Bhautikgiri_Gauswami_Resume.pdf">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -428,5 +440,8 @@
             return false;
         }
     </script>
+    
+    <!-- Load compiled TypeScript -->
+    <script src="static/js/main.js"></script>
 </body>
 </html>
